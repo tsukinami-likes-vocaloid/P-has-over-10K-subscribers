@@ -107,6 +107,7 @@ button:hover {
     max-width: 500px;
     border-radius: 8px;
     text-align: center;
+    line-height: 1.6; /* 行間を広くする */
 }
 
 .modal-content img {
@@ -129,4 +130,8 @@ button:hover {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.channel-pname {
+    color: #666;
 }
