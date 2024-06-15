@@ -43,13 +43,13 @@ input[type="text"] {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #007bff; /* 青色に変更 */
     color: white;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #0056b3; /* ホバー時の色 */
 }
 
 .channel {
