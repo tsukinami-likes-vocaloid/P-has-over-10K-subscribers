@@ -19,6 +19,9 @@ function displayChannels(channels) {
         img.src = channel.icon;
         img.alt = `${channel.name}のアイコン`;
         
+        const detailsDiv = document.createElement('div');
+        detailsDiv.className = 'channel-details';
+        
         const name = document.createElement('div');
         name.className = 'channel-name';
         name.textContent = channel.name;
@@ -27,9 +30,11 @@ function displayChannels(channels) {
         subscribers.className = 'channel-subscribers';
         subscribers.textContent = `登録者数: ${channel.subscribers.toLocaleString()}`;
         
+        detailsDiv.appendChild(name);
+        detailsDiv.appendChild(subscribers);
+        
         channelDiv.appendChild(img);
-        channelDiv.appendChild(name);
-        channelDiv.appendChild(subscribers);
+        channelDiv.appendChild(detailsDiv);
         
         channelList.appendChild(channelDiv);
     });
