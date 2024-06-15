@@ -60,12 +60,40 @@ function displayChannels(channels) {
     });
 }
 
+// ソート関数: 登録者数の多い順
+function sortBySubscribersDescending(channels) {
+    channels.sort((a, b) => b['登録者数'] - a['登録者数']);
+}
+
+// ソート関数: あいうえお順
+function sortByJapaneseOrder(channels) {
+    channels.sort((a, b) => {
+        // よみがなで比較する場合、localeCompare を使うと便利です
+        return a['よみがな'].localeCompare(b['よみがな']);
+    });
+}
+
 // ページが読み込まれたときに実行
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         let channels = await fetchChannelData();
-        displayChannels(channels); // 最初は登録者数の多い順で表示
+
+        // 最初は登録者数の多い順で表示
+        sortBySubscribersDescending(channels);
+        displayChannels(channels);
         
+        // ソート選択のプルダウンメニュー
+        const sortSelect = document.getElementById('sort-select');
+        sortSelect.addEventListener('change', () => {
+            const sortMethod = sortSelect.value;
+            if (sortMethod === 'subscribers-desc') {
+                sortBySubscribersDescending(channels); // 登録者数の多い順でソート
+            } else if (sortMethod === 'alphabetical') {
+                sortByJapaneseOrder(channels); // あいうえお順でソート
+            }
+            displayChannels(channels); // ソート後に再表示
+        });
+
     } catch (error) {
         console.error('Fetching channel data failed:', error);
     }
