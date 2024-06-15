@@ -121,6 +121,12 @@ button:hover {
     border-radius: 50%;
 }
 
+.modal-content .modal-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 .close {
     color: #aaa;
     float: right;
