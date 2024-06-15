@@ -68,8 +68,15 @@ function sortBySubscribersDescending(channels) {
 // ソート関数: あいうえお順
 function sortByJapaneseOrder(channels) {
     channels.sort((a, b) => {
-        // よみがなで比較する場合、localeCompare を使うと便利です
         return a['よみがな'].localeCompare(b['よみがな']);
+    });
+}
+
+// 検索関数
+function searchChannels(channels, keyword) {
+    return channels.filter(channel => {
+        const searchData = `${channel['データ名']} ${channel['よみがな']}`.toLowerCase();
+        return searchData.includes(keyword.toLowerCase());
     });
 }
 
@@ -77,11 +84,9 @@ function sortByJapaneseOrder(channels) {
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         let channels = await fetchChannelData();
-
-        // 最初は登録者数の多い順で表示
-        sortBySubscribersDescending(channels);
+        sortBySubscribersDescending(channels); // 最初は登録者数の多い順で表示
         displayChannels(channels);
-        
+
         // ソート選択のプルダウンメニュー
         const sortSelect = document.getElementById('sort-select');
         sortSelect.addEventListener('change', () => {
@@ -92,6 +97,18 @@ document.addEventListener('DOMContentLoaded', async () => {
                 sortByJapaneseOrder(channels); // あいうえお順でソート
             }
             displayChannels(channels); // ソート後に再表示
+        });
+
+        // 検索ボタンのクリックイベント
+        const searchButton = document.getElementById('search-button');
+        searchButton.addEventListener('click', () => {
+            const keyword = document.getElementById('search-input').value.trim();
+            if (keyword) {
+                const filteredChannels = searchChannels(channels, keyword);
+                displayChannels(filteredChannels);
+            } else {
+                displayChannels(channels); // キーワードが空の場合はすべて表示
+            }
         });
 
     } catch (error) {
