@@ -86,6 +86,7 @@ button:hover {
     color: #666;
 }
 
+/* 全体のスタイルは省略 */
 .modal {
     display: none;
     position: fixed;
@@ -98,7 +99,6 @@ button:hover {
     background-color: rgba(0,0,0,0.4);
 }
 
-/* 既存のCSS */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -110,9 +110,9 @@ button:hover {
     text-align: center;
 }
 
-.modal-img {
+.modal-content img {
     display: block;
-    margin: 20px auto; /* 上部の margin を調整 */
+    margin: 0 auto; /* アイコン画像を中央揃えに修正 */
     width: 100px;
     height: 100px;
     border-radius: 50%;
