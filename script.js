@@ -24,6 +24,7 @@ function displayChannels(channels) {
         name.textContent = channel.name;
         
         const subscribers = document.createElement('div');
+        subscribers.className = 'channel-subscribers';
         subscribers.textContent = `登録者数: ${channel.subscribers.toLocaleString()}`;
         
         channelDiv.appendChild(img);
