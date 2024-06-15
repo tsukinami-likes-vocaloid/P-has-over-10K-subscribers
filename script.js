@@ -26,13 +26,8 @@ function displayChannels(channels) {
         const subscribers = document.createElement('div');
         subscribers.textContent = `登録者数: ${channel.subscribers.toLocaleString()}`;
         
-        const link = document.createElement('a');
-        link.href = channel.url;
-        link.target = '_blank';
-        link.appendChild(name);
-        
         channelDiv.appendChild(img);
-        channelDiv.appendChild(link);
+        channelDiv.appendChild(name);
         channelDiv.appendChild(subscribers);
         
         channelList.appendChild(channelDiv);
