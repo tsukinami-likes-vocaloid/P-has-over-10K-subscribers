@@ -1,3 +1,6 @@
+// グローバル変数に元のチャンネルデータを保持するための配列を定義
+let originalChannels = [];
+
 // データを取得する関数
 async function fetchChannelData() {
     const response = await fetch('channels.json');
@@ -84,6 +87,7 @@ function searchChannels(channels, keyword) {
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         let channels = await fetchChannelData();
+        originalChannels = channels.slice(); // 元のデータをコピーして保存
         sortBySubscribersDescending(channels); // 最初は登録者数の多い順で表示
         displayChannels(channels);
 
@@ -104,10 +108,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         searchButton.addEventListener('click', () => {
             const keyword = document.getElementById('search-input').value.trim();
             if (keyword) {
-                const filteredChannels = searchChannels(channels, keyword);
+                const filteredChannels = searchChannels(originalChannels, keyword); // 元のデータを検索対象とする
                 displayChannels(filteredChannels);
             } else {
-                displayChannels(channels); // キーワードが空の場合はすべて表示
+                displayChannels(originalChannels); // キーワードが空の場合は元のデータを表示
             }
         });
 
