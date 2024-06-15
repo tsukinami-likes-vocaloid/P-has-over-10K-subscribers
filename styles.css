@@ -84,11 +84,14 @@ h1 {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: relative;
 }
 
 .close {
     color: #aaa;
-    float: right;
+    position: absolute;
+    top: 10px;
+    right: 15px;
     font-size: 28px;
     font-weight: bold;
 }
@@ -103,8 +106,7 @@ h1 {
 .modal img {
     width: 100px;
     height: 100px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;  /* 中央揃えのために変更 */
     border-radius: 50%;
     display: block;  /* 中央揃えのために追加 */
-    margin: 0 auto;  /* 中央揃えのために追加 */
 }
