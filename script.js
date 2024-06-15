@@ -1,34 +1,3 @@
-// グローバル変数に元のチャンネルデータを保持するための配列を定義
-let originalChannels = [];
-let currentChannels = []; // 現在表示中のチャンネルデータを保持する配列
-
-// データを取得する関数
-async function fetchChannelData() {
-    const response = await fetch('channels.json');
-    if (!response.ok) {
-        throw new Error('Network response was not ok ' + response.statusText);
-    }
-    const data = await response.json();
-    return data.channels;
-}
-
-// モーダルウィンドウを開く関数
-function openModal(channel) {
-    const modal = document.getElementById('myModal');
-    document.getElementById('modal-icon').src = channel['アイコンの画像URL'];
-    document.getElementById('modal-name').textContent = channel['データ名'];
-    document.getElementById('modal-subscribers').textContent = `登録者数: ${channel['登録者数'].toLocaleString()}`;
-    document.getElementById('modal-url').href = channel['URL'];
-    
-    modal.style.display = 'block';
-}
-
-// モーダルウィンドウを閉じる関数
-function closeModal() {
-    const modal = document.getElementById('myModal');
-    modal.style.display = 'none';
-}
-
 // チャンネルデータを表示する関数
 function displayChannels(channels) {
     const channelList = document.getElementById('channel-list');
@@ -53,9 +22,18 @@ function displayChannels(channels) {
         const subscribers = document.createElement('div');
         subscribers.className = 'channel-subscribers';
         subscribers.textContent = `登録者数: ${channel['登録者数'].toLocaleString()}`;
+
+        const pName = document.createElement('div');
+        pName.className = 'channel-pname';
+        if (channel['P名']) {
+            pName.textContent = `P名: ${channel['P名']}`;
+        }
         
         detailsDiv.appendChild(name);
         detailsDiv.appendChild(subscribers);
+        if (channel['P名']) {
+            detailsDiv.appendChild(pName);
+        }
         
         channelDiv.appendChild(img);
         channelDiv.appendChild(detailsDiv);
@@ -63,73 +41,3 @@ function displayChannels(channels) {
         channelList.appendChild(channelDiv);
     });
 }
-
-// ソート関数: 登録者数の多い順
-function sortBySubscribersDescending(channels) {
-    channels.sort((a, b) => b['登録者数'] - a['登録者数']);
-}
-
-// ソート関数: あいうえお順
-function sortByJapaneseOrder(channels) {
-    channels.sort((a, b) => {
-        return a['よみがな'].localeCompare(b['よみがな']);
-    });
-}
-
-// 検索関数
-function searchChannels(channels, keyword) {
-    return channels.filter(channel => {
-        const searchData = `${channel['データ名']} ${channel['よみがな']}`.toLowerCase();
-        return searchData.includes(keyword.toLowerCase());
-    });
-}
-
-// ページが読み込まれたときに実行
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        originalChannels = await fetchChannelData();
-        currentChannels = originalChannels.slice(); // 現在表示中のデータを初期化
-
-        sortBySubscribersDescending(currentChannels); // 最初は登録者数の多い順で表示
-        displayChannels(currentChannels);
-
-        // ソート選択のプルダウンメニュー
-        const sortSelect = document.getElementById('sort-select');
-        sortSelect.addEventListener('change', () => {
-            const sortMethod = sortSelect.value;
-            if (sortMethod === 'subscribers-desc') {
-                sortBySubscribersDescending(currentChannels); // 現在表示中のデータをソート
-            } else if (sortMethod === 'alphabetical') {
-                sortByJapaneseOrder(currentChannels); // 現在表示中のデータをソート
-            }
-            displayChannels(currentChannels); // ソート後に再表示
-        });
-
-        // 検索ボタンのクリックイベント
-        const searchButton = document.getElementById('search-button');
-        searchButton.addEventListener('click', () => {
-            const keyword = document.getElementById('search-input').value.trim();
-            if (keyword) {
-                currentChannels = searchChannels(originalChannels, keyword); // 元のデータを検索対象とする
-                displayChannels(currentChannels);
-            } else {
-                currentChannels = originalChannels.slice(); // 元のデータを表示
-                sortBySubscribersDescending(currentChannels); // 最初は登録者数の多い順で表示
-                displayChannels(currentChannels);
-            }
-        });
-
-    } catch (error) {
-        console.error('Fetching channel data failed:', error);
-    }
-
-    // モーダルウィンドウを閉じるイベントリスナーを追加
-    const closeBtn = document.querySelector('.close');
-    closeBtn.onclick = closeModal;
-    window.onclick = (event) => {
-        const modal = document.getElementById('myModal');
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    };
-});
