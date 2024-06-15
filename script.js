@@ -42,11 +42,34 @@ function displayChannels(channels) {
     });
 }
 
-// 初期化処理
-document.addEventListener('DOMContentLoaded', () => {
-    // ここでチャンネルデータを取得して displayChannels を呼び出すなどの処理が入る
+// モーダルを開く関数
+function openModal(channel) {
+    const modal = document.getElementById('myModal');
+    const modalImg = document.getElementById('modal-icon');
+    const modalName = document.getElementById('modal-name');
+    const modalSubscribers = document.getElementById('modal-subscribers');
+    const modalUrl = document.getElementById('modal-url');
+
+    modalImg.src = channel['アイコンの画像URL'];
+    modalImg.alt = `${channel['データ名']}のアイコン`;
+    modalName.textContent = channel['データ名'];
+    modalSubscribers.textContent = `登録者数: ${channel['登録者数'].toLocaleString()}`;
+    modalUrl.href = channel['URL'];
+
+    modal.style.display = 'block';
 
     // モーダルの閉じるボタンにイベントリスナーを追加
     const closeModalButton = document.querySelector('.close');
     closeModalButton.addEventListener('click', closeModal);
+}
+
+// モーダルを閉じる関数
+function closeModal() {
+    const modal = document.getElementById('myModal');
+    modal.style.display = 'none';
+}
+
+// 初期化処理
+document.addEventListener('DOMContentLoaded', () => {
+    // ここでチャンネルデータを取得して displayChannels を呼び出すなどの処理が入る
 });
