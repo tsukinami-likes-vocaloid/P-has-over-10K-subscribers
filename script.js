@@ -1,5 +1,6 @@
 // グローバル変数に元のチャンネルデータを保持するための配列を定義
 let originalChannels = [];
+let currentChannels = []; // 現在表示中のチャンネルデータを保持する配列
 
 // データを取得する関数
 async function fetchChannelData() {
@@ -86,21 +87,22 @@ function searchChannels(channels, keyword) {
 // ページが読み込まれたときに実行
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        let channels = await fetchChannelData();
-        originalChannels = channels.slice(); // 元のデータをコピーして保存
-        sortBySubscribersDescending(channels); // 最初は登録者数の多い順で表示
-        displayChannels(channels);
+        originalChannels = await fetchChannelData();
+        currentChannels = originalChannels.slice(); // 現在表示中のデータを初期化
+
+        sortBySubscribersDescending(currentChannels); // 最初は登録者数の多い順で表示
+        displayChannels(currentChannels);
 
         // ソート選択のプルダウンメニュー
         const sortSelect = document.getElementById('sort-select');
         sortSelect.addEventListener('change', () => {
             const sortMethod = sortSelect.value;
             if (sortMethod === 'subscribers-desc') {
-                sortBySubscribersDescending(channels); // 登録者数の多い順でソート
+                sortBySubscribersDescending(currentChannels); // 現在表示中のデータをソート
             } else if (sortMethod === 'alphabetical') {
-                sortByJapaneseOrder(channels); // あいうえお順でソート
+                sortByJapaneseOrder(currentChannels); // 現在表示中のデータをソート
             }
-            displayChannels(channels); // ソート後に再表示
+            displayChannels(currentChannels); // ソート後に再表示
         });
 
         // 検索ボタンのクリックイベント
@@ -108,10 +110,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         searchButton.addEventListener('click', () => {
             const keyword = document.getElementById('search-input').value.trim();
             if (keyword) {
-                const filteredChannels = searchChannels(originalChannels, keyword); // 元のデータを検索対象とする
-                displayChannels(filteredChannels);
+                currentChannels = searchChannels(originalChannels, keyword); // 元のデータを検索対象とする
+                displayChannels(currentChannels);
             } else {
-                displayChannels(originalChannels); // キーワードが空の場合は元のデータを表示
+                currentChannels = originalChannels.slice(); // 元のデータを表示
+                sortBySubscribersDescending(currentChannels); // 最初は登録者数の多い順で表示
+                displayChannels(currentChannels);
             }
         });
 
