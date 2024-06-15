@@ -105,4 +105,6 @@ h1 {
     height: 100px;
     margin-bottom: 20px;
     border-radius: 50%;
+    display: block;  /* 中央揃えのために追加 */
+    margin: 0 auto;  /* 中央揃えのために追加 */
 }
