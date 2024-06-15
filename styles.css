@@ -132,8 +132,8 @@ button:hover {
     cursor: pointer;
 }
 
-/* 変更点：アイコン画像を中央揃えにする */
-.modal-content img {
+/* 修正点：モーダルウィンドウ内の img 要素にのみスタイルを適用する */
+.modal-content .modal-img {
     display: block;
     margin: 20px auto; /* 上部の margin を調整 */
     width: 100px;
