@@ -1,0 +1,22 @@
+{
+  "channels": [
+    {
+      "name": "Channel 1",
+      "subscribers": 5000000,
+      "url": "https://www.youtube.com/channel1",
+      "icon": "https://example.com/icon1.png"
+    },
+    {
+      "name": "Channel 2",
+      "subscribers": 10000000,
+      "url": "https://www.youtube.com/channel2",
+      "icon": "https://example.com/icon2.png"
+    },
+    {
+      "name": "Channel 3",
+      "subscribers": 7500000,
+      "url": "https://www.youtube.com/channel3",
+      "icon": "https://example.com/icon3.png"
+    }
+  ]
+}
