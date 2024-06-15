@@ -1,8 +1,28 @@
 // データを取得する関数
 async function fetchChannelData() {
     const response = await fetch('channels.json');
+    if (!response.ok) {
+        throw new Error('Network response was not ok ' + response.statusText);
+    }
     const data = await response.json();
     return data.channels;
+}
+
+// モーダルウィンドウを開く関数
+function openModal(channel) {
+    const modal = document.getElementById('myModal');
+    document.getElementById('modal-icon').src = channel.icon;
+    document.getElementById('modal-name').textContent = channel.name;
+    document.getElementById('modal-subscribers').textContent = `登録者数: ${channel.subscribers.toLocaleString()}`;
+    document.getElementById('modal-url').href = channel.url;
+    
+    modal.style.display = 'block';
+}
+
+// モーダルウィンドウを閉じる関数
+function closeModal() {
+    const modal = document.getElementById('myModal');
+    modal.style.display = 'none';
 }
 
 // チャンネルデータを表示する関数
@@ -14,6 +34,7 @@ function displayChannels(channels) {
     channels.forEach(channel => {
         const channelDiv = document.createElement('div');
         channelDiv.className = 'channel';
+        channelDiv.onclick = () => openModal(channel);
         
         const img = document.createElement('img');
         img.src = channel.icon;
@@ -42,6 +63,20 @@ function displayChannels(channels) {
 
 // ページが読み込まれたときに実行
 document.addEventListener('DOMContentLoaded', async () => {
-    const channels = await fetchChannelData();
-    displayChannels(channels);
+    try {
+        const channels = await fetchChannelData();
+        displayChannels(channels);
+    } catch (error) {
+        console.error('Fetching channel data failed:', error);
+    }
+
+    // モーダルウィンドウを閉じるイベントリスナーを追加
+    const closeBtn = document.querySelector('.close');
+    closeBtn.onclick = closeModal;
+    window.onclick = (event) => {
+        const modal = document.getElementById('myModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
 });
