@@ -86,7 +86,18 @@ button:hover {
     color: #666;
 }
 
-/* 既存のCSS */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -119,12 +130,3 @@ button:hover {
     text-decoration: none;
     cursor: pointer;
 }
-
-/* 変更点：データ名を太字にする */
-.modal-content #modal-name {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-}
-
