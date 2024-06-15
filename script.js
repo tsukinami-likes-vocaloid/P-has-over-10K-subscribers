@@ -11,10 +11,10 @@ async function fetchChannelData() {
 // モーダルウィンドウを開く関数
 function openModal(channel) {
     const modal = document.getElementById('myModal');
-    document.getElementById('modal-icon').src = channel.icon;
-    document.getElementById('modal-name').textContent = channel.name;
-    document.getElementById('modal-subscribers').textContent = `登録者数: ${channel.subscribers.toLocaleString()}`;
-    document.getElementById('modal-url').href = channel.url;
+    document.getElementById('modal-icon').src = channel['アイコンの画像URL'];
+    document.getElementById('modal-name').textContent = channel['データ名'];
+    document.getElementById('modal-subscribers').textContent = `登録者数: ${channel['登録者数'].toLocaleString()}`;
+    document.getElementById('modal-url').href = channel['URL'];
     
     modal.style.display = 'block';
 }
@@ -36,19 +36,19 @@ function displayChannels(channels) {
         channelDiv.onclick = () => openModal(channel);
         
         const img = document.createElement('img');
-        img.src = channel.icon;
-        img.alt = `${channel.name}のアイコン`;
+        img.src = channel['アイコンの画像URL'];
+        img.alt = `${channel['データ名']}のアイコン`;
         
         const detailsDiv = document.createElement('div');
         detailsDiv.className = 'channel-details';
         
         const name = document.createElement('div');
         name.className = 'channel-name';
-        name.textContent = channel.name;
+        name.textContent = channel['データ名'];
         
         const subscribers = document.createElement('div');
         subscribers.className = 'channel-subscribers';
-        subscribers.textContent = `登録者数: ${channel.subscribers.toLocaleString()}`;
+        subscribers.textContent = `登録者数: ${channel['登録者数'].toLocaleString()}`;
         
         detailsDiv.appendChild(name);
         detailsDiv.appendChild(subscribers);
@@ -66,17 +66,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         let channels = await fetchChannelData();
         displayChannels(channels); // 最初は登録者数の多い順で表示
         
-        const sortSelect = document.getElementById('sort-select');
-        sortSelect.addEventListener('change', () => {
-            const sortMethod = sortSelect.value;
-            if (sortMethod === 'subscribers-desc') {
-                channels.sort((a, b) => b.subscribers - a.subscribers); // 登録者数の多い順
-            } else if (sortMethod === 'alphabetical') {
-                channels.sort((a, b) => a.name.localeCompare(b.name)); // あいうえお順
-            }
-            displayChannels(channels); // データを再表示
-        });
-
     } catch (error) {
         console.error('Fetching channel data failed:', error);
     }
