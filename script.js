@@ -41,3 +41,12 @@ function displayChannels(channels) {
         channelList.appendChild(channelDiv);
     });
 }
+
+// 初期化処理
+document.addEventListener('DOMContentLoaded', () => {
+    // ここでチャンネルデータを取得して displayChannels を呼び出すなどの処理が入る
+
+    // モーダルの閉じるボタンにイベントリスナーを追加
+    const closeModalButton = document.querySelector('.close');
+    closeModalButton.addEventListener('click', closeModal);
+});
