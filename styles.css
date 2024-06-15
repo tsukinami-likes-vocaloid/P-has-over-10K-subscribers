@@ -107,7 +107,6 @@ button:hover {
     max-width: 500px;
     border-radius: 8px;
     text-align: center;
-    line-height: 1.6; /* 行間を広くする */
 }
 
 .modal-content img {
@@ -132,6 +131,10 @@ button:hover {
     cursor: pointer;
 }
 
-.channel-pname {
-    color: #666;
+/* 変更点：データ名を太字にする */
+.modal-content #modal-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
 }
