@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Channel Data</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTubeチャンネルデータ</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>YouTubeチャンネルデータ</h1>
-        <div>
-            <label for="sort-select">ソート順:</label>
-            <select id="sort-select">
-                <option value="subscribers-desc">登録者数の多い順</option>
-                <option value="alphabetical">あいうえお順</option>
-            </select>
-        </div>
-        <div id="channel-list"></div>
-    </div>
+  <div class="container">
+    <h1>YouTubeチャンネル一覧</h1>
 
-    <!-- モーダルウィンドウのHTML -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modal-icon" src="" alt="アイコン">
-            <h2 id="modal-name"></h2>
-            <p id="modal-subscribers"></p>
-            <a id="modal-url" href="" target="_blank">YouTubeチャンネルへ</a>
-        </div>
-    </div>
+    <!-- ソート選択 -->
+    <label for="sort-select">ソート:</label>
+    <select id="sort-select">
+      <option value="subscribers-desc">登録者数の多い順</option>
+      <option value="alphabetical">あいうえお順</option>
+    </select>
 
-    <script src="script.js"></script>
+    <!-- 検索入力 -->
+    <input type="text" id="search-input" placeholder="データ名またはよみがなで検索">
+    <button id="search-button">検索</button>
+
+    <!-- チャンネルリスト -->
+    <div id="channel-list"></div>
+  </div>
+
+  <!-- モーダルウィンドウ -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modal-icon" class="modal-icon">
+      <div id="modal-name" class="modal-name"></div>
+      <div id="modal-subscribers" class="modal-subscribers"></div>
+      <a id="modal-url" class="modal-url" target="_blank">YouTubeで見る</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
