@@ -10,10 +10,12 @@
     <div class="container">
         <h1>YouTubeチャンネル情報</h1>
         <div class="sort-search-container">
-            <select id="sort-select">
+            <label for="sort-select">並び替え:</label>
+            <select id="sort-select" aria-label="並び替え">
                 <option value="subscribers-desc">登録者数の多い順</option>
                 <option value="alphabetical">あいうえお順</option>
             </select>
+            <label for="search-input">検索:</label>
             <input type="text" id="search-input" placeholder="検索...">
             <button id="search-button">検索</button>
         </div>
