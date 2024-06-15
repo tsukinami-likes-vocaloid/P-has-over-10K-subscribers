@@ -28,9 +28,8 @@ function closeModal() {
 // チャンネルデータを表示する関数
 function displayChannels(channels) {
     const channelList = document.getElementById('channel-list');
-    // 登録者数の降順にソート
-    channels.sort((a, b) => b.subscribers - a.subscribers);
-    
+    channelList.innerHTML = ''; // 表示前にリセット
+
     channels.forEach(channel => {
         const channelDiv = document.createElement('div');
         channelDiv.className = 'channel';
@@ -64,8 +63,20 @@ function displayChannels(channels) {
 // ページが読み込まれたときに実行
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const channels = await fetchChannelData();
-        displayChannels(channels);
+        let channels = await fetchChannelData();
+        displayChannels(channels); // 最初は登録者数の多い順で表示
+        
+        const sortSelect = document.getElementById('sort-select');
+        sortSelect.addEventListener('change', () => {
+            const sortMethod = sortSelect.value;
+            if (sortMethod === 'subscribers-desc') {
+                channels.sort((a, b) => b.subscribers - a.subscribers); // 登録者数の多い順
+            } else if (sortMethod === 'alphabetical') {
+                channels.sort((a, b) => a.name.localeCompare(b.name)); // あいうえお順
+            }
+            displayChannels(channels); // データを再表示
+        });
+
     } catch (error) {
         console.error('Fetching channel data failed:', error);
     }
