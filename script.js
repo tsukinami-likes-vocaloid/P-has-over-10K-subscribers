@@ -1,6 +1,7 @@
 // グローバル変数に元のチャンネルデータを保持するための配列を定義
 let originalChannels = [];
 let currentChannels = []; // 現在表示中のチャンネルデータを保持する配列
+let searchKeyword = ""; // 現在の検索キーワードを保持
 
 // データを取得する関数
 async function fetchChannelData() {
@@ -102,21 +103,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             } else if (sortMethod === 'alphabetical') {
                 sortByJapaneseOrder(currentChannels); // 現在表示中のデータをソート
             }
+            currentChannels = searchChannels(currentChannels, searchKeyword); // 検索結果を再取得してソート
             displayChannels(currentChannels); // ソート後に再表示
         });
 
-        // 検索ボタンのクリックイベント
-        const searchButton = document.getElementById('search-button');
-        searchButton.addEventListener('click', () => {
-            const keyword = document.getElementById('search-input').value.trim();
-            if (keyword) {
-                currentChannels = searchChannels(originalChannels, keyword); // 元のデータを検索対象とする
-                displayChannels(currentChannels);
+        // 検索フィールドの入力イベント
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('input', () => {
+            searchKeyword = searchInput.value.trim();
+            if (searchKeyword) {
+                currentChannels = searchChannels(originalChannels, searchKeyword); // 元のデータを検索対象とする
             } else {
                 currentChannels = originalChannels.slice(); // 元のデータを表示
                 sortBySubscribersDescending(currentChannels); // 最初は登録者数の多い順で表示
-                displayChannels(currentChannels);
             }
+            currentChannels = searchChannels(currentChannels, searchKeyword); // 検索結果を再取得してソート
+            displayChannels(currentChannels);
         });
 
     } catch (error) {
