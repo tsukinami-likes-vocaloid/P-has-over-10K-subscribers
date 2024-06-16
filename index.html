@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTubeチャンネル情報</title>
+    <title>YouTubeチャンネル一覧</title>
     <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 </head>
+
+<div class="wrapper">
+
 <body>
     <div class="container">
-        <h1>YouTubeチャンネル情報</h1>
+        <h1>登録者数1万人超えボカロPまとめ</h1>
         <div class="sort-search-container">
-            <label for="sort-select">並び替え:</label>
-            <select id="sort-select" aria-label="並び替え">
+            <input type="text" id="search-input" placeholder="🔍️  名前 or よみがな を入力...">
+            <select id="sort-select" title="Sort options">
                 <option value="subscribers-desc">登録者数の多い順</option>
                 <option value="alphabetical">あいうえお順</option>
             </select>
-            <label for="search-input">検索:</label>
-            <input type="text" id="search-input" placeholder="検索...">
-            <button id="search-button">検索</button>
         </div>
         <div id="channel-list"></div>
     </div>
@@ -25,13 +26,43 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <img id="modal-icon" src="" alt="アイコン">
-            <div id="modal-name"></div>
-            <div id="modal-subscribers"></div>
-            <a id="modal-url" href="" target="_blank">YouTubeチャンネルへ</a>
+            <div class="modal-icon-container">
+                <img id="modal-icon" src="" alt="チャンネルアイコン">
+            </div>
+            <div class="modal-text">
+                <div id="modal-name" class="modal-name"></div>
+                <div id="modal-subscribers"></div>
+                <a id="modal-url" href="" target="_blank">YouTubeチャンネルへ</a>
+            </div>
         </div>
     </div>
 
     <script src="script.js"></script>
+
+    
 </body>
+
+<footer class="footer-2">
+    <nav>
+        <ul class="footer-2__list">
+            <li>
+                <svg class="footer-2__sns-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <a xlink:href="https://x.com/tsukinami_voca">
+                    <path fill="#fff"
+                        d="M22.162 5.656a8.384 8.384 0 0 1-2.402.658A4.196 4.196 0 0 0 21.6 4c-.82.488-1.719.83-2.656 1.015a4.182 4.182 0 0 0-7.126 3.814 11.874 11.874 0 0 1-8.62-4.37 4.168 4.168 0 0 0-.566 2.103c0 1.45.738 2.731 1.86 3.481a4.168 4.168 0 0 1-1.894-.523v.052a4.185 4.185 0 0 0 3.355 4.101 4.21 4.21 0 0 1-1.89.072A4.185 4.185 0 0 0 7.97 16.65a8.394 8.394 0 0 1-6.191 1.732 11.83 11.83 0 0 0 6.41 1.88c7.693 0 11.9-6.373 11.9-11.9 0-.18-.005-.362-.013-.54a8.496 8.496 0 0 0 2.087-2.165z"/>
+                </svg>
+            </li>
+            <li>
+                <svg class="footer-2__sns-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <a xlink:href="https://www.youtube.com/@tsukinami_likes_vocaloid">
+                    <path fill="#fff"
+                        d="M21.543 6.498C22 8.28 22 12 22 12s0 3.72-.457 5.502c-.254.985-.997 1.76-1.938 2.022C17.896 20 12 20 12 20s-5.893 0-7.605-.476c-.945-.266-1.687-1.04-1.938-2.022C2 15.72 2 12 2 12s0-3.72.457-5.502c.254-.985.997-1.76 1.938-2.022C6.107 4 12 4 12 4s5.896 0 7.605.476c.945.266 1.687 1.04 1.938 2.022zM10 15.5l6-3.5-6-3.5v7z"/>
+                </svg>
+            </li>
+        </ul>
+    </nav>
+    <p class="footer-2__copyright">Coded by 月並みのボカロ好き</p>
+</footer>
+</div>
+
 </html>
