@@ -3,7 +3,11 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    
 }
+
 
 .container {
     width: 80%;
@@ -23,6 +27,7 @@ h1 {
 }
 
 label {
+    margin-left: 10px; /* ここを調整 */
     margin-right: 10px;
 }
 
@@ -78,16 +83,20 @@ button:hover {
 .channel-details {
     display: flex;
     flex-direction: column;
+    font-size: smaller;
+    color: #575757;
 }
 
 .channel-name {
     font-size: 18px;
     font-weight: bold;
     color: #333;
-}
-
-.channel-subscribers {
-    color: #666;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    letter-spacing: 0em;
 }
 
 .modal {
@@ -111,25 +120,71 @@ button:hover {
     max-width: 500px;
     border-radius: 8px;
     text-align: center;
+    position: relative; /* 相対位置指定 */
+    line-height: 2; /* 行間を調整するための基本設定 */
+    line-height: inherit; /* 全ての要素に適用される行間 */
+}
+
+.modal-content .modal-icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
 }
 
 .modal-content img {
     display: block;
-    margin: 0 auto 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 0%;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3); /* ドロップシャドウの追加 */
+}
+
+.modal-content .modal-icon {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.modal-content .modal-text {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .modal-content .modal-name {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+    text-align: center;
+}
+
+.modal-content .modal-subscribers,
+.modal-content .modal-url {
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.modal-content .modal-subscribers {
+    color: #666;
+}
+
+.modal-content .modal-url {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.modal-content .modal-url:hover {
+    text-decoration: underline;
 }
 
 .close {
     color: #aaa;
-    float: right;
+    position: absolute;
+    top: 10px;
+    right: 20px;
     font-size: 28px;
     font-weight: bold;
 }
@@ -139,4 +194,48 @@ button:hover {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer-2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 0;
+    background-color: #8d8d8d;
+    margin-top: auto;
+    width: 100%;
+
+}
+
+.footer-2__logo {
+    width: 130px;
+    height: 30px;
+}
+
+.footer-2__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 1.5em;
+    list-style-type: none;
+    margin: 0 0 .5em;
+    padding: .5em;
+}
+
+.footer-2__sns-icon {
+    width: 21px;
+    height: 21px;
+}
+
+.footer-2__copyright {
+    margin: 0;
+    color: #ffffffb3;
+    font-weight: 200;
+    font-size: .8em;
 }
