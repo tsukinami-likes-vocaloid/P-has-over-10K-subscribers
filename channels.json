@@ -1,40 +1,44 @@
 {
   "channels": [
     {
-      "データ名": "ぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬ",
+      "データ名": "ぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬ",
       "登録者数": 227000,
       "URL": "https://www.youtube.com/@N_u",
       "アイコンの画像URL": "https://yt3.googleusercontent.com/ZAFbVTH_WcJsPDePcBYoznmUenqkPwVZXBvKISBtYQwhmQ8ZSVyQLk5Iy4PO5AtLQwFyAXlJ=s160-c-k-c0x00ffffff-no-rj",
-      "よみがな": "ぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬ"
+      "よみがな": "ぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬぬ",
+      "タグ": ["楽しい", "エモーショナル"]
     },
     {
       "データ名": "みきとP",
       "登録者数": 438000,
       "URL": "https://www.youtube.com/@mikitop",
       "アイコンの画像URL": "https://yt3.googleusercontent.com/DS8UtzegpLbyMN8PuU2pb65K263ewaaGSWiDYVZ1yhbS8hRD1KOOqXLq_SnIvNFnSjfCr5Gmkw=s160-c-k-c0x00ffffff-no-rj",
-      "よみがな": "みきとぴー"
+      "よみがな": "みきとぴー",
+      "タグ": ["楽しい", "元気"]
     },
     {
       "データ名": "海茶",
       "登録者数": 13400,
       "URL": "https://www.youtube.com/@umibeno_chaya",
       "アイコンの画像URL": "https://yt3.googleusercontent.com/2FEjVu8QWY9mPpwDlxOGtiIz12V1W2r8l4SJLSZy4iWpOLEGQdlyAn-tzFGXXdfGslXmM8Cm=s160-c-k-c0x00ffffff-no-rj",
-      "よみがな": "うみちゃ"
+      "よみがな": "うみちゃ",
+      "タグ": ["楽しい", "リラックス"]
     },
     {
       "データ名": "カンザキイオリ",
       "登録者数": 449000,
       "URL": "https://www.youtube.com/@IoriKanzaki",
       "アイコンの画像URL": "https://yt3.googleusercontent.com/Q0bE4jL7RzbkSnEZQuW5z3lJkG_D-aKQJLUfVet0tvjfzOqwOvT0Ib-mVwsyj996vWAc6CjUIQ=s160-c-k-c0x00ffffff-no-rj",
-      "よみがな": "かんざきいおり"
+      "よみがな": "かんざきいおり",
+      "タグ": ["かなしい", "クール", "シンプル"]
     },
     {
       "データ名": "中瀬ミル",
       "登録者数": 12500,
       "URL": "https://www.youtube.com/@mirunakase",
       "アイコンの画像URL": "https://yt3.googleusercontent.com/NUpb4t3yHANlQl6RrahsYcggQ1XikTZ4zr4IyMkp56Pvf_54prqj7eAcF6yKXFM08wDi1yme4g=s160-c-k-c0x00ffffff-no-rj",
-      "よみがな": "なかせみる"
+      "よみがな": "なかせみる",
+      "タグ": ["ミステリアス", "シンプル"]
     }
-    
   ]
 }
