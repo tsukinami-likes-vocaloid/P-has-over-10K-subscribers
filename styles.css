@@ -1,5 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
+    @import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+    font-family: 'Noto Sans JP', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -7,6 +8,79 @@ body {
     grid-template-rows: 1fr auto;
     
 }
+
+/* タグチェックボックスのスタイル */
+.tag-checkbox {
+    flex-wrap: wrap;
+    gap: .5em 2em;
+    margin-right: 5px; /* チェックボックスとラベルの間隔 */
+}
+
+/* タグチェックボックスアコーディオンメニューのスタイル */
+.tag-category-title {
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.tag-category-title::after {
+    content: '\25BE'; /* くの字型の矢印 */
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.tag-category-title.active::after {
+    transform: translateY(-50%) rotate(-180deg); /* 展開時の矢印の向き */
+}
+
+.tag-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-bottom: 10px;
+    border-top: 1px solid #ddd; /* 横線 */
+    padding-top: 5px;
+}
+
+  /* チェックボックスのラベルのスタイル */
+.tag-checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 0 .5em;
+    position: relative;
+    cursor: pointer;
+}
+
+  /* チェックボックスのチェック時のスタイル */
+.tag-checkbox:checked + label::before {
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    border: 2px solid #d6dde3;
+    content: ''; width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    border: 2px solid #d6dde3;
+    content: '';
+}
+
+.tag-checkbox label:has(:checked)::after {
+    position: absolute;
+    top: 5px;
+    left: 7px;
+    transform: rotate(45deg);
+    width: 5px;
+    height: 10px;
+    border: solid #2589d0;
+    border-width: 0 3px 3px 0;
+    content: '';
+}
+
 
 
 .container {
@@ -47,15 +121,6 @@ input[type="text"] {
     background-color: #fff;
 }
 
-button {
-    background-color: #007bff; /* 青色に変更 */
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3; /* ホバー時の色 */
-}
 
 .channel {
     display: flex;
@@ -74,10 +139,11 @@ button:hover {
 }
 
 .channel img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border-radius: 5%;
     margin-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .channel-details {
@@ -85,6 +151,48 @@ button:hover {
     flex-direction: column;
     font-size: smaller;
     color: #575757;
+}
+
+/* タグボタンを横並びにするスタイル */
+.channel-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* 左揃え */
+    margin-top: 0px;
+}
+
+/* タグボタンの基本スタイル */
+.tag-button {
+    margin-right: 8px; /* ボタン間の横の余白 */
+    margin-bottom: 8px; /* ボタン間の縦の余白 */
+    padding: 6px 12px;
+    background-color: #eff2f4;
+    color: #333333;
+    border: none;
+    border-radius: 5px;
+    font-size: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    align-self: flex-start; /* 上端揃え */
+}
+
+/* ボタンにマウスを乗せた時のスタイル */
+.tag-button:hover {
+    background-color: #e6e6e6;
+}
+
+/* ボタンを押した時のスタイル */
+.tag-button:active {
+    background-color: #ffffff;
+}
+
+.tag-button.active-tag {
+    background-color: #FF5733;
+}
+
+.active-tag:hover {
+    background-color: #b52c0d;
 }
 
 .channel-name {
@@ -96,7 +204,7 @@ button:hover {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     overflow: hidden;
-    letter-spacing: 0em;
+    letter-spacing: 0.05em;
 }
 
 .modal {
@@ -137,7 +245,7 @@ button:hover {
     width: 150px;
     height: 150px;
     border-radius: 5%;
-    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3); /* ドロップシャドウの追加 */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .modal-content .modal-icon {
@@ -151,6 +259,7 @@ button:hover {
 .modal-content .modal-text {
     text-align: center;
     margin-bottom: 20px;
+    color: #575757;
 }
 
 .modal-content .modal-name {
