@@ -16,21 +16,17 @@ function openModal(channel) {
     modal.style.display = 'block';
 }
 
+// サイト説明モーダルを開く関数
+function openAboutModal() {
+    const modal = document.getElementById('aboutModal');
+    modal.style.display = 'block';
+}
+
 // モーダルウィンドウを閉じる関数
-function closeModal() {
-    const modal = document.getElementById('myModal');
+function closeModal(modal) {
     modal.style.display = 'none';
 }
 
-    // モーダルウィンドウを閉じるイベントリスナーを追加
-    const closeBtn = document.querySelector('.close');
-    closeBtn.onclick = closeModal;
-    window.onclick = (event) => {
-        const modal = document.getElementById('myModal');
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    };
 
 
 // タグ情報を格納するオブジェクト
@@ -89,6 +85,8 @@ function createTagCheckboxes() {
             console.error('Failed to fetch tags data:', error);
         });
 }
+
+
 
 // データを取得する関数
 async function fetchChannelData() {
@@ -215,28 +213,54 @@ function applyFilters() {
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         originalChannels = await fetchChannelData();
-        displayChannels(originalChannels); // 初期表示
+        currentChannels = originalChannels.slice(); // 現在表示中のデータを初期化
 
-        createTagCheckboxes(); // タグチェックボックス生成
+        sortBySubscribersDescending(currentChannels); // 最初は登録者数の多い順でソート
+        displayChannels(currentChannels); // ソート後に表示
+
+        createTagCheckboxes(); // タグチェックボックスを生成
+
+        // タグのチェックボックスの変更イベント
+        const tagCheckboxes = document.querySelectorAll('.tag-checkbox');
+        tagCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                applyFilters(); // フィルタを再適用
+            });
+        });
 
         // ソート選択のプルダウンメニュー
         const sortSelect = document.getElementById('sort-select');
         sortSelect.addEventListener('change', () => {
             currentSortMethod = sortSelect.value;
-            applyFilters(); // ソートとフィルタ適用
+            applyFilters(); // ソートとフィルタを適用
         });
 
         // 検索フィールドの入力イベント
         const searchInput = document.getElementById('search-input');
-        searchInput.addEventListener('input', applyFilters); // フィルタ適用
+        searchInput.addEventListener('input', () => {
+            searchKeyword = searchInput.value.trim();
+            applyFilters(); // フィルタを適用
+        });
 
-        // タグのチェックボックスの変更イベント
-        const tagCheckboxes = document.querySelectorAll('.tag-checkbox');
-        tagCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', applyFilters); // フィルタ適用
+        // 「このサイトについて」のリンクイベント
+        const aboutLink = document.getElementById('about-link');
+        aboutLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            openAboutModal();
         });
 
     } catch (error) {
         console.error('Fetching channel data failed:', error);
     }
+
+    // モーダルウィンドウを閉じるイベントリスナーを追加
+    const closeButtons = document.querySelectorAll('.close');
+    closeButtons.forEach(btn => btn.onclick = (event) => {
+        closeModal(event.target.closest('.modal'));
+    });
+    window.onclick = (event) => {
+        if (event.target.classList.contains('modal')) {
+            closeModal(event.target);
+        }
+    };
 });
