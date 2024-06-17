@@ -15,7 +15,16 @@
 
 <div class="wrapper">
 
+    
+
 <body>
+
+    <h5>
+    <div class="site-info">
+            <a href="#" id="about-link">このサイトについて</a>
+        </div>
+    </h5>
+    
     <div class="container">
         <h1>登録者数1万人超えボカロPまとめ</h1>
         <div class="sort-search-container">
@@ -25,12 +34,18 @@
                 <option value="alphabetical">あいうえお順</option>
             </select>
         </div>
+
+    
+        
         <div id="accordion" class="tag-accordion">
             <!-- タグチェックボックスを生成する際に、ここに追加されます -->
         </div>
+        
+        <hr class="hr1">
+        
         <div id="channel-list"></div>
     </div>
-
+<hr style=”border-style:dashed; border-width: 5px 0px 0px 0px;” >
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -52,6 +67,38 @@
     
 </body>
 
+<div id="aboutModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="how-to-title">このサイトについて</div>
+        <div class="how-to-title2">このサイトについて、Q & A形式で説明します。</div>
+        <dl class="qa-8">
+            <dt>このサイトはどんなサイト？</dt>
+            <dd>YouTubeにて、チャンネル登録者数が1万人を超えているボカロPさんを検索できるサイトです</dd>
+            <dt>作ろうと思ったきっかけは？</dt>
+            <dd>暇だったので、登録者が1万人超えてる方を全員集計してたのですが、「どうせなら検索できるツールもつくりたいよな...」となり、このサイトが誕生しました</dd>
+            <dt>コードは自分で書いたの？</dt>
+            <dd>いえ、自分で書いたコードは本当に一部です。ほとんどのコードはChatGPTさんか、優しい方がインターネットにあげてくれている、フリーテンプレのコピペです。</dd>
+            <dt>検索の仕組みは？</dt>
+            <dd>それぞれのボカロPさんに、「アーティスト名」「アーティスト名のよみがな」「タグ」のデータが保存されています。検索の際は、「アーティスト名を入力する」、「ひらがなでよみがなを入力する」、「タグで絞り込む」の3つを駆使してみてください。</dd>
+            <dt>まだ5人しか表示されないし、タグもなんかおかしいけど...？</dt>
+            <dd>まだテスト段階のため、ダミーのタグを表示させています。バグも多分ありますし、UIもあんまりよろしくないですが、申し訳ないですがしばらく我慢してください...</dd>
+            <dt>これ1人でつくってるの？</dt>
+            <dd>1人で作っていますが、私にはhtmlなりcssなりjavaなりの知識が乏しいので、これ以上、機能を増やしたり、UIを改善したりはできそうにないです...。しかし、あまり出来に納得いっていないので、これらに詳しい＆手伝ってやってもいいぜって方がいたらTwitterのDMに来てくれるとうれしいです...　泣いて喜びます。また、ボカロPさんのタグ付け作業などもあるので、「Webページ制作はよくわからんけど、ボカロは好き！」という方もDMに来てくださるとうれしいです...！</dd>
+            <dt>テンプレからもってきたって言ってたけど、具体的にお世話になったサイトは？</dt>
+            <dd>
+                <a href= "https://pote-chil.com/css-stock/ja" >CSS Stock</a>
+                様、
+                <a href= "https://getcssscan.com/css-box-shadow-examples" >CSS box-shadow examples</a>
+                様には本当にお世話になりました...感謝申し上げます...
+            </dd>
+            <dt>最後に一言</dt>
+            <dd>まじで誰か詳しい人たすけて！！！！！！</dd>
+            
+        </dl>
+    </div>
+</div>
+
 <footer class="footer-2">
     <nav>
         <ul class="footer-2__list">
@@ -61,6 +108,7 @@
                     <path fill="#fff"
                         d="M22.162 5.656a8.384 8.384 0 0 1-2.402.658A4.196 4.196 0 0 0 21.6 4c-.82.488-1.719.83-2.656 1.015a4.182 4.182 0 0 0-7.126 3.814 11.874 11.874 0 0 1-8.62-4.37 4.168 4.168 0 0 0-.566 2.103c0 1.45.738 2.731 1.86 3.481a4.168 4.168 0 0 1-1.894-.523v.052a4.185 4.185 0 0 0 3.355 4.101 4.21 4.21 0 0 1-1.89.072A4.185 4.185 0 0 0 7.97 16.65a8.394 8.394 0 0 1-6.191 1.732 11.83 11.83 0 0 0 6.41 1.88c7.693 0 11.9-6.373 11.9-11.9 0-.18-.005-.362-.013-.54a8.496 8.496 0 0 0 2.087-2.165z"/>
                 </svg>
+                
             </li>
             <li>
                 <svg class="footer-2__sns-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
