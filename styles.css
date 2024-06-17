@@ -9,6 +9,62 @@ body {
     
 }
 
+.how-to-title{
+    text-align: center;
+    color: #333;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.how-to-title2{
+    text-align: center;
+    color: #333;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+h5 {
+    text-align: right;
+    color: #863030;
+    margin-right: 50px;
+    margin-bottom: -30px;
+}
+
+.qa-8 dt {
+    text-align: left;
+    margin-left: 22px;
+    margin-bottom: 1em;
+    color: #333333;
+    font-weight: 600;
+}
+
+.qa-8 dt::before,
+.qa-8 dd::before {
+    text-align: left;
+    margin-right: .4em;
+}
+
+.qa-8 dt::before {
+    text-align: left;
+    content: "Q.";
+}
+
+.qa-8 dd {
+    text-align: left;
+    margin: 0 0 2.5em;
+    padding: 1em 1.5em;
+    background-color: #f2f2f2;
+    color: #333333;
+}
+
+.qa-8 dd::before {
+    text-align: left;
+    content: "A.";
+}
+
+
 /* タグチェックボックスのスタイル */
 .tag-checkbox {
     flex-wrap: wrap;
@@ -26,7 +82,7 @@ body {
 
 .tag-category-title::after {
     content: '\25BE'; /* くの字型の矢印 */
-    font-size: 12px;
+    font-size: 22px;
     position: absolute;
     top: 50%;
     right: 10px;
@@ -81,10 +137,14 @@ body {
     content: '';
 }
 
+.hr1 {
+    border-top: 3px dotted #8d8d8d; /* 点線 */
+}
+
 
 
 .container {
-    width: 80%;
+    width: 90%;
     margin: 20px auto;
 }
 
@@ -97,7 +157,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
+    overflow: hidden;
 }
 
 label {
@@ -187,13 +248,12 @@ input[type="text"] {
     background-color: #ffffff;
 }
 
+/* アクティブなタグボタンのスタイル */
 .tag-button.active-tag {
-    background-color: #FF5733;
+    background-color: red;
+    color: white;
 }
 
-.active-tag:hover {
-    background-color: #b52c0d;
-}
 
 .channel-name {
     font-size: 18px;
