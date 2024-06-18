@@ -6,8 +6,7 @@ body {
     padding: 0;
     display: grid;
     grid-template-rows: 1fr auto;
-    
-    
+    overflow-x: hidden;
 }
 
 .site-info {
@@ -23,15 +22,13 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    padding: 1em 2em;
     color: #333333;
     font-weight: 700;
     cursor: pointer;
     width: 90%;
     margin: 20px auto;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     font-size: 18px;
-    margin-top: -20
 }
 
 .accordion-003 summary::-webkit-details-marker {
@@ -71,15 +68,13 @@ body {
 
 header {
     z-index: 1;
-    position: -webkit-sticky;
     position:         sticky;
     top: 0px;
     background: #f4f4f4; /* 背景色にグレーを指定 */
-    height: 150;
-    max-height: 1; /* 最小の高さ */
-    width: 100vw;
-    margin: 0 calc(50% - 50vw);
-
+    width: 100%;
+    margin: 0 -500%;
+    padding: 0 500%;
+    
     margin-bottom: 10px;
     
     padding-right: calc(50vw - 50%);
@@ -233,6 +228,7 @@ h5 {
 .container {
     width: 90%;
     margin: 20px auto;
+    
 
 }
 
@@ -461,6 +457,7 @@ input[type="text"] {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    
 }
 
 .footer-2 {
