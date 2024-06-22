@@ -10,9 +10,9 @@ function openModal(channel) {
     const modal = document.getElementById('myModal');
     document.getElementById('modal-icon').src = channel['アイコンの画像URL'];
     document.getElementById('modal-name').textContent = channel['データ名'];
+    document.getElementById('modal-explanation').textContent = channel['説明'];
     document.getElementById('modal-subscribers').textContent = `登録者数: ${channel['登録者数'].toLocaleString()}`;
     document.getElementById('modal-url').href = channel['URL'];
-    
     modal.style.display = 'block';
 }
 
