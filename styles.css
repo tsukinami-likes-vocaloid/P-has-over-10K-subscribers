@@ -7,6 +7,7 @@ body {
     display: grid;
     grid-template-rows: 1fr auto;
     overflow-x: hidden;
+    
 }
 
 .site-info {
@@ -68,19 +69,18 @@ body {
 
 header {
     z-index: 1;
-    position:         sticky;
+    position:sticky;
     top: 0px;
     background: #f4f4f4; /* 背景色にグレーを指定 */
     width: 100%;
     margin: 0 -500%;
     padding: 0 500%;
-    
+
     margin-bottom: 10px;
     
     padding-right: calc(50vw - 50%);
     padding-right: calc(50vw - 50%);
     box-shadow: 0px 2px 4px -2px rgba(0,0,0,0.5);
-
 }
 
 
@@ -222,20 +222,11 @@ h5 {
     content: '';
 }
 
-
-
-
 .container {
     width: 90%;
     margin: 20px auto;
     
 
-}
-
-h1 {
-    text-align: center;
-    color: #333;
-    
 }
 
 .sort-search-container {
@@ -279,7 +270,6 @@ input[type="text"] {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.2s;
-    
 }
 
 .channel:hover {
@@ -335,13 +325,6 @@ input[type="text"] {
     background-color: #ffffff;
 }
 
-/* アクティブなタグボタンのスタイル */
-.tag-button.active-tag {
-    background-color: red;
-    color: white;
-}
-
-
 .channel-name {
     font-size: 18px;
     font-weight: bold;
@@ -353,6 +336,7 @@ input[type="text"] {
     overflow: hidden;
     letter-spacing: 0.05em;
 }
+
 
 .modal {
     display: none;
@@ -384,12 +368,13 @@ input[type="text"] {
 .modal-content .modal-icon-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
 }
 
 .modal-content img {
     display: block;
+    margin-top: 5%;
     width: 150px;
     height: 150px;
     border-radius: 5%;
@@ -414,18 +399,36 @@ input[type="text"] {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+    margin-top: -5px;
     text-align: center;
+    
+}
+
+.modal-explanation {
+    font-size: 14px;
+    color: #333;
+    width: 90%;
+    display: -webkit-box;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    letter-spacing: 0.05em;
+    margin:0 auto;
+    margin-top: 50px;
+
 }
 
 .modal-content .modal-subscribers,
 .modal-content .modal-url {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     text-align: center;
+    
 }
 
 .modal-content .modal-subscribers {
     color: #666;
+    
 }
 
 .modal-content .modal-url {
@@ -456,9 +459,9 @@ input[type="text"] {
 .wrapper{
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    
+
 }
+
 
 .footer-2 {
     display: flex;
@@ -467,13 +470,16 @@ input[type="text"] {
     padding: 30px 0;
     background-color: #8d8d8d;
     margin-top: auto;
+    box-sizing: boder-box;
     width: 100%;
+    
 
 }
 
 .footer-2__logo {
     width: 130px;
     height: 30px;
+    
 }
 
 .footer-2__list {
