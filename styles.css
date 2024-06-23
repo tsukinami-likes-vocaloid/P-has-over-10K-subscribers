@@ -172,6 +172,7 @@ h5 {
     transition: transform 0.3s ease;
     margin-right: 16px;
     
+    
 }
 
 .tag-category-title.active::after {
@@ -502,4 +503,48 @@ input[type="text"] {
     color: #ffffffb3;
     font-weight: 200;
     font-size: .8em;
+}
+
+@media (max-width: 768px) {
+    header {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+   margin: 0 calc(50% - 50vw);
+    }
+
+    .accordion-003 summary {
+        font-size: 16px;
+    }
+
+    .modal-content {
+        margin: 20% auto;
+        padding: 15px;
+    }
+
+    .how-to-title {
+        font-size: 24px;
+    }
+
+    .how-to-title2 {
+        font-size: 12px;
+    }
+
+    .tag-category-title {
+        font-size: 14px;
+    }
+
+    .tag-button {
+        font-size: 8px;
+        padding: 4px 8px;
+    }
+
+    .channel img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .channel-name {
+        font-size: 16px;
+    }
 }
