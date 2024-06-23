@@ -26,7 +26,7 @@ body {
     color: #333333;
     font-weight: 700;
     cursor: pointer;
-    width: 90%;
+    width: 95%;
     margin: 20px auto;
     margin-bottom: 20px;
     font-size: 18px;
@@ -234,7 +234,6 @@ h5 {
     display: flex;
     justify-content: center;
     overflow: hidden;
-    width: 90%;
     margin: 20px auto;
 }
 
@@ -282,6 +281,7 @@ input[type="text"] {
     height: 80px;
     border-radius: 5%;
     margin-right: 10px;
+    margin-left: 3px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
@@ -510,11 +510,24 @@ input[type="text"] {
         margin: 0;
         padding: 0;
         width: 100vw;
-   margin: 0 calc(50% - 50vw);
+        margin: 0 calc(50% - 50vw);
+        margin-bottom: 10px;
+        
     }
+
+    .sort-search-container {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        width: 90%;
+        margin: 20px auto;
+    }
+    
 
     .accordion-003 summary {
         font-size: 16px;
+        display: flex;
+    width: 85%;
     }
 
     .modal-content {
@@ -540,8 +553,9 @@ input[type="text"] {
     }
 
     .channel img {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
+        margin-left: 3px;
     }
 
     .channel-name {
