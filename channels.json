@@ -5488,6 +5488,72 @@
 			"ボカロP"
 		],
 		"説明": "まだ説明が記入されていません。"
+	},
+	{
+		"データ名": "佐藤乃子",
+		"登録者数": 10100,
+		"URL": "https://www.youtube.com/@n_nc310",
+		"アイコンの画像URL": "https://yt3.googleusercontent.com/QcHAd2UMuG42s-t1ucjT2Oi-HUmmYNJ7ZLdAcwJ1AtmDZ6swhhv_SiiutKecYwrJiM_5V2ZK=s160-c-k-c0x00ffffff-no-rj",
+		"よみがな": "さとうのこ",
+		"タグ": [
+			"ボカロP"
+		],
+		"説明": "まだ説明が記入されていません。"
+	},
+	{
+		"データ名": "ゆかてふ",
+		"登録者数": 129000,
+		"URL": "https://www.youtube.com/@yukatefu",
+		"アイコンの画像URL": "https://yt3.googleusercontent.com/ytc/AIdro_mPV6eLtANZtlNTqwwZrcuwDdRE90HH-UBgIAzR3OeCvzE=s160-c-k-c0x00ffffff-no-rj",
+		"よみがな": "ゆかてふ",
+		"タグ": [
+			"ボカロP"
+		],
+		"説明": "まだ説明が記入されていません。"
+	},
+	{
+		"データ名": "⌘ハイノミ",
+		"登録者数": 10000,
+		"URL": "https://www.youtube.com/@HYNOME/featured",
+		"アイコンの画像URL": "https://yt3.googleusercontent.com/RZ2hMifeMVrwV_4em6vT97dlOzJu-mB7ATghAMpVxHOfcTkZQo629ZJb9Ps68ZlftQBRpS6muQ=s160-c-k-c0x00ffffff-no-rj",
+		"よみがな": "はいのみ",
+		"タグ": [
+			"ボカロP"
+		],
+		"説明": "まだ説明が記入されていません。"
+	},
+	{
+		"データ名": "かるび太郎",
+		"登録者数": 10000,
+		"URL": "https://www.youtube.com/user/calvitaro",
+		"アイコンの画像URL": "https://yt3.googleusercontent.com/ytc/AIdro_nr3OgBVPrTH_mBxYhJIJfBK7FjGQei0vfkzIxyiAY3NQ=s160-c-k-c0x00ffffff-no-rj",
+		"よみがな": "かるびたろう",
+		"タグ": [
+			"ボカロP"
+		],
+		"説明": "まだ説明が記入されていません。"
+	},
+	{
+		"データ名": "えいぷ",
+		"登録者数": 10500,
+		"URL": "https://www.youtube.com/@husigina_ame/featured",
+		"アイコンの画像URL": "https://yt3.googleusercontent.com/zXX-twz2HoQdLkoxzqJ4ftnTIL6TRI8hfgnIdHVmeiV1ff4rTDjyUnAOe4OcVsmOtSQSYGWvUAk=s160-c-k-c0x00ffffff-no-rj",
+		"よみがな": "えいぷ",
+		"タグ": [
+			"ボカロP"
+		],
+		"説明": "まだ説明が記入されていません。"
+	},
+	{
+		"データ名": "藤原ハガネ",
+		"登録者数": 12100,
+		"URL": "https://www.youtube.com/@fujitetsu8",
+		"アイコンの画像URL": "https://yt3.googleusercontent.com/4BvP1FbVOINIIumF5KWGCKv--35A0REeY-6LnZj-dRZH0VpGlA19trAylrTGcdTc16FuUCBa=s160-c-k-c0x00ffffff-no-rj",
+		"よみがな": "ふじわらはがね",
+		"タグ": [
+			"ボカロP"
+		],
+		"説明": "まだ説明が記入されていません。"
 	}
 ]
 }
